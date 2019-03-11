@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Poker_Game.Models.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,8 @@ namespace Poker_Game.Controllers
     {
         public ActionResult Index()
         {
+            GameService game = new GameService();
+            game.Orquestrador();
             return View();
         }
 
