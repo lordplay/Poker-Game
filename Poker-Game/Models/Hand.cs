@@ -6,8 +6,8 @@ namespace Poker_Game.Models
     {
         public Hand()
         {
-            this.Cards = new HashSet<Card>();
+            Cards = new List<Card>();
         }
-        public virtual ICollection<Card> Cards { get; set; }
+        public virtual List<Card> Cards { get; set; }
     }
 }

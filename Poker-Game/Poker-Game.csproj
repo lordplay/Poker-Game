@@ -148,6 +148,7 @@
     <Compile Include="Models\Hand.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Sequence.cs" />
+    <Compile Include="Models\Services\CheatMode.cs" />
     <Compile Include="Models\Services\GameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -20,11 +20,43 @@ namespace Poker_Game.Models.Services
             CriarDeck();
 
             //Popular a mao dos jogadores
-            StartHands();
+            //StartHands();
 
-            //Adicionar cartas na mesa 
-            AdicionarCartasNaMesa();
+            CheatMode();
 
+            VerificarCartasJogadores();
+
+        }
+
+        public void CheatMode()
+        {
+            int mode;
+            Random random = new Random();
+            var Cheat = new CheatMode();
+
+            foreach (var player in Players)
+            {
+                mode = random.Next(1, 4);
+
+                switch (mode)
+                {
+                    case 1:
+                        player.Hand.Cards = Cheat.RoyalFlush();
+                        break;
+                    case 2:
+                        player.Hand.Cards = Cheat.ToK();
+                        break;
+                    case 3:
+                        player.Hand.Cards = Cheat.Straight();
+                        break;
+                    case 4:
+                        player.Hand.Cards = Cheat.FourOfAKind();
+                        break;
+                    default:
+                        break;
+                }
+
+            }
 
         }
 
@@ -56,7 +88,7 @@ namespace Poker_Game.Models.Services
         {
             foreach (var player in Players)
             {
-                for (int i = 0; i < 2; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     player.Hand.Cards.Add(GetRandomCardFromDeck());
                 }
@@ -78,14 +110,17 @@ namespace Poker_Game.Models.Services
         {
             Mesa.Add(GetRandomCardFromDeck());
 
-            foreach (var player in Players)
-            {
-                //Verificar a mao de cada jogador
-            }
         }
 
         public void VerificarCartasJogadores()
         {
+            foreach (var player in Players)
+            {
+                var x = player.ToAK();
+                var y = player.Flush();
+                var z = player.Straight();
+                var p = player.FourOfAKind();
+            }
 
         }
 

@@ -9,10 +9,14 @@ namespace Poker_Game.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public HomeController()
         {
             GameService game = new GameService();
             game.Orquestrador();
+
+        }
+        public ActionResult Index()
+        {
             return View();
         }
 
