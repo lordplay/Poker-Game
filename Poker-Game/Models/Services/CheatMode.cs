@@ -7,17 +7,6 @@ namespace Poker_Game.Models.Services
 {
     public class CheatMode
     {
-        public List<Card> RoyalFlush()
-        {
-            List<Card> cards = new List<Card>();
-
-            for (int i = 10; i < 15; i++)
-            {
-                cards.Add(new Card { Naipe = EnumNaipe.Copas, Sequence = (EnumSequence)i });
-            }
-            return cards;
-        }
-
         public List<Card> ToK()
         {
             List<Card> cards = new List<Card>();
@@ -48,6 +37,16 @@ namespace Poker_Game.Models.Services
                 cards.Add(new Card { Naipe = (EnumNaipe)i, Sequence = EnumSequence.Ten });
             }
             cards.Add(new Card { Naipe = EnumNaipe.Copas, Sequence = EnumSequence.Dama });
+            return cards;
+        }
+
+        internal List<Card> RoyalFlush()
+        {
+            List<Card> cards = new List<Card>();
+            for (int i = 0; i < 4; i++)
+            {
+                cards.Add(new Card { Naipe = EnumNaipe.Copas, Sequence = (EnumSequence)i + 10 });
+            }
             return cards;
         }
     }

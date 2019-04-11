@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
@@ -20,9 +21,9 @@ namespace Poker_Game.Models.Services
             CriarDeck();
 
             //Popular a mao dos jogadores
-            //StartHands();
+            StartHands();
 
-            CheatMode();
+            //CheatMode();
 
             VerificarCartasJogadores();
 
@@ -114,12 +115,11 @@ namespace Poker_Game.Models.Services
 
         public void VerificarCartasJogadores()
         {
+
             foreach (var player in Players)
             {
-                var x = player.ToAK();
-                var y = player.Flush();
-                var z = player.Straight();
-                var p = player.FourOfAKind();
+                player.WhatDoIHave();
+                Debug.WriteLine(player.Name + " => " + player.Wtf);
             }
 
         }
